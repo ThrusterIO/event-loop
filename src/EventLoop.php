@@ -198,6 +198,8 @@ class EventLoop implements EventLoopInterface
             $this->timers[$timer]->stop();
             $this->timers->detach($timer);
         }
+
+        return $this;
     }
 
     /**
@@ -223,7 +225,7 @@ class EventLoop implements EventLoopInterface
 
         $this->signals->attach($signal, $event);
 
-        return $this;
+        return $signal;
     }
 
     /**
@@ -235,6 +237,8 @@ class EventLoop implements EventLoopInterface
             $this->signals[$signal]->stop();
             $this->signals->detach($signal);
         }
+
+        return $this;
     }
 
     /**
@@ -260,7 +264,7 @@ class EventLoop implements EventLoopInterface
 
         $this->signals->attach($child, $event);
 
-        return $this;
+        return $child;
     }
 
     /**
@@ -272,6 +276,8 @@ class EventLoop implements EventLoopInterface
             $this->children[$child]->stop();
             $this->children->detach($child);
         }
+
+        return $this;
     }
 
     /**
